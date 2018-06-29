@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "1015927800733",
+    "firebase_url": "https://debtor-551b7.firebaseio.com",
+    "project_id": "debtor-551b7",
+    "storage_bucket": "debtor-551b7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1015927800733:android:fb19940cf7f87668",
+        "android_client_info": {
+          "package_name": "com.apkproject.debtor"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1015927800733-mdneumbj9ssl8q22adnvu515mjecrk7b.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCL6HsfocmKAx0sR-qL0Lnvl_kDfr4T6Kc"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
