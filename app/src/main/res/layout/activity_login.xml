@@ -9,7 +9,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context=".LoginActivity">
+    tools:context=".ui.LoginActivity">
 
     <!-- Login progress -->
     <ProgressBar
@@ -42,7 +42,8 @@
                     android:hint="@string/prompt_email"
                     android:inputType="textEmailAddress"
                     android:maxLines="1"
-                    android:singleLine="true" />
+                    android:singleLine="true"
+                    android:text="@string/prompt_email" />
 
             </android.support.design.widget.TextInputLayout>
 
@@ -60,7 +61,8 @@
                     android:imeOptions="actionUnspecified"
                     android:inputType="textPassword"
                     android:maxLines="1"
-                    android:singleLine="true" />
+                    android:singleLine="true"
+                    android:text="@string/prompt_email" />
 
             </android.support.design.widget.TextInputLayout>
 
@@ -71,6 +73,44 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:text="@string/action_sign_in"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/login_new_account_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:contextClickable="true"
+                android:text="@string/dont_have_an_account"
+                android:textAlignment="center" />
+
+            <Button
+                android:id="@+id/login_facebook_sign_in_button"
+                style="?android:textAppearanceSmall"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="64dp"
+                android:backgroundTint="@color/colorFacebook"
+                android:text="@string/Sign_in_facebook"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/login_twitter_sign_in_button"
+                style="?android:textAppearanceSmall"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:backgroundTint="@color/colorTwitter"
+                android:text="@string/Sign_in_twitter"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/login_google_sign_in_button"
+                style="?android:textAppearanceSmall"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:backgroundTint="@color/colorGoogle"
+                android:text="@string/Sign_in_google"
                 android:textStyle="bold" />
 
         </LinearLayout>
