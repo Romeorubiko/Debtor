@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -23,7 +24,7 @@
     <ScrollView
         android:id="@+id/login_form"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
 
         <LinearLayout
             android:id="@+id/email_login_form"
@@ -72,7 +73,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:text="@string/action_sign_in"
+                android:backgroundTint="@color/colorPrimary"
+                android:text="@string/action_sign_in_short"
+                android:textColor="@android:color/background_light"
                 android:textStyle="bold" />
 
             <TextView
@@ -81,38 +84,52 @@
                 android:layout_height="wrap_content"
                 android:contextClickable="true"
                 android:text="@string/dont_have_an_account"
-                android:textAlignment="center" />
-
-            <Button
-                android:id="@+id/login_facebook_sign_in_button"
-                style="?android:textAppearanceSmall"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="64dp"
-                android:backgroundTint="@color/colorFacebook"
-                android:text="@string/Sign_in_facebook"
-                android:textStyle="bold" />
-
-            <Button
-                android:id="@+id/login_twitter_sign_in_button"
-                style="?android:textAppearanceSmall"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:backgroundTint="@color/colorTwitter"
-                android:text="@string/Sign_in_twitter"
-                android:textStyle="bold" />
-
-            <Button
-                android:id="@+id/login_google_sign_in_button"
-                style="?android:textAppearanceSmall"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:backgroundTint="@color/colorGoogle"
-                android:text="@string/Sign_in_google"
-                android:textStyle="bold" />
+                android:textAlignment="center"
+                android:textColor="@android:color/holo_blue_dark" />
 
         </LinearLayout>
     </ScrollView>
+
+    <LinearLayout
+        android:id="@+id/other_sign_in"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="48dp"
+        android:orientation="vertical"
+        android:visibility="visible">
+
+        <Button
+            android:id="@+id/login_facebook_sign_in_button"
+            style="?android:textAppearanceSmall"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:backgroundTint="@color/colorFacebook"
+            android:drawableStart="@drawable/ic_facebook"
+            android:text="@string/Sign_in_facebook"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/login_twitter_sign_in_button"
+            style="?android:textAppearanceSmall"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:backgroundTint="@color/colorTwitter"
+            android:drawableStart="@drawable/ic_twitter"
+            android:text="@string/Sign_in_twitter"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/login_google_sign_in_button"
+            style="?android:textAppearanceSmall"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:backgroundTint="@color/colorGoogle"
+            android:drawableStart="@drawable/ic_googleplus"
+            android:text="@string/Sign_in_google"
+            android:textStyle="bold" />
+
+    </LinearLayout>
 </LinearLayout>
