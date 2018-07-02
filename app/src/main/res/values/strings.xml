@@ -18,4 +18,5 @@
     <string name="Sign_in_twitter">Sign in with Twitter</string>
     <string name="Sign_in_google">Sign in with Google+</string>
     <string name="or">or</string>
+    <string name="Sign_up">Sign up</string>
 </resources>
