@@ -19,8 +19,8 @@
                         <option name="values">
                           <map>
                             <entry key="assetSourceType" value="FILE" />
-                            <entry key="outputName" value="ic_facebook" />
-                            <entry key="sourceFile" value="C:\Users\Raul\Downloads\facebook-logo.svg" />
+                            <entry key="outputName" value="ic_sync_" />
+                            <entry key="sourceFile" value="F:\Downloads\baseline-sync-24px.svg" />
                           </map>
                         </option>
                       </PersistentState>

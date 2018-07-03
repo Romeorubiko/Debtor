@@ -68,7 +68,7 @@ public class SignupActivity extends AppCompatActivity {
                                     Log.d("AuthSuccess", "createUserWithEmail:success");
                                     FirebaseUser user = mAuth.getCurrentUser();
                                     updateUI(user);
-                                    Intent intent = new Intent(SignupActivity.this, myLists.class);
+                                    Intent intent = new Intent(SignupActivity.this, MyListsActivity.class);
                                     startActivity(intent);
 
                                 } else {
