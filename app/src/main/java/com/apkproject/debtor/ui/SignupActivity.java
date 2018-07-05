@@ -131,8 +131,8 @@ public class SignupActivity extends AppCompatActivity {
             focusView.requestFocus();
         } else {
             // Check if user is signed in (non-null) and update UI accordingly.
-            //currentUser = mAuth.getCurrentUser();
-           // updateUI(currentUser);
+            currentUser = mAuth.getCurrentUser();
+            updateUI(currentUser);
         }
     }
 

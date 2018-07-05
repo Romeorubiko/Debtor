@@ -36,7 +36,8 @@
         <activity
             android:name=".ui.MyListsActivity"
             android:label="@string/title_activity_my_lists"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".ui.AccountActivity"></activity>
     </application>
 
 </manifest>
