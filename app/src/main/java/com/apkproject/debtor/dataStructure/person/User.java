@@ -88,4 +88,17 @@ public class User extends Contact implements Serializable {
     public boolean isAUser() {
         return true;
     }
+
+    public void deleteContact(String name){
+        for (Contact c : contactList) {
+            if(c.getName().equals(name)){
+                contactList.remove(c);
+                return;
+            }
+        }
+    }
+
+    public void deleteAccount(){
+        //todo delete account on firebase
+    }
 }
