@@ -3,7 +3,6 @@ package com.apkproject.debtor.dataStructure.person;
 import com.apkproject.debtor.dataStructure.alerts.Notification;
 import com.apkproject.debtor.dataStructure.alerts.Request;
 import com.apkproject.debtor.dataStructure.debts.Debt;
-import com.apkproject.debtor.dataStructure.tools.Check;
 import com.apkproject.debtor.dataStructure.tools.Currency;
 
 import java.io.Serializable;
