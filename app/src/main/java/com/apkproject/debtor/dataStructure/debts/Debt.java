@@ -1,70 +1,103 @@
 package com.apkproject.debtor.dataStructure.debts;
 
+import com.apkproject.debtor.dataStructure.person.Contact;
+
 import java.io.Serializable;
+import java.util.Currency;
 import java.util.Date;
+import java.util.List;
 
 //What defines a debt
 public class Debt implements Serializable{
-	
-	private String person;
+
+	private long id;
+	private Contact from;
+	private Contact to;
 	private double amount;
-	private String reason;
-	private boolean iown;
-	private Date date;
-	private int id;
-	
-	public Debt(String person, double amount, String reason, boolean iown, int id) {
-		this.person = person;
+	private Date lastUpdate;
+	private String description;
+	private List<Payment> payments;
+	private Currency currency;
+
+	public Debt(Contact from, Contact to, double amount, Date lastUpdate, String description, List<Payment> payments, Currency currency) {
+		//TODO: generate debt id
+		this.from = from;
+		this.to = to;
 		this.amount = amount;
-		this.reason = reason;
-		this.iown = iown;
-		this.date = new Date();
-		this.id = id;
-	}
-	
-	public String getPerson() {
-		return person;
+		this.lastUpdate = lastUpdate;
+		this.description = description;
+		this.payments = payments;
+		this.currency = currency;
 	}
 
-	public void setPerson(String person) {
-		this.person = person;
-	}
+    public double getAmount() {
+        return amount;
+    }
 
-	public double getAmount() {
-		return amount;
-	}
+    public void setAmount(double amount) {
+        this.amount = amount;
+    }
 
-	public void setAmount(double amount) {
-		this.amount = amount;
-	}
+    public Date getLastUpdate() {
+        return lastUpdate;
+    }
 
-	public String getReason() {
-		return reason;
-	}
+    public void setLastUpdate(Date lastUpdate) {
+        this.lastUpdate = lastUpdate;
+    }
 
-	public void setReason(String reason) {
-		this.reason = reason;
-	}
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public long getId() {
+        return id;
+    }
 
 
-	public boolean isIown() {
-		return iown;
-	}
+    public Contact getFrom() {
+        return from;
+    }
 
-	public void setIown(boolean iown) {
-		this.iown = iown;
-	}
+    public Contact getTo() {
+        return to;
+    }
 
-	public Date getDate() {
-		return date;
-	}
+    public List<Payment> getPayments() {
+        return payments;
+    }
 
-	public void setDate(Date date) {
-		this.date = date;
-	}
+    public Currency getCurrency() {
+        return currency;
+    }
 
-	public int getId() {
-		return id;
-	}
-	//no need set id because we cant change it	
+    public double getBalance (long debtId) {
+	    //TODO: when getting debt balance, check if the balance is from or to user, and show a negative or positive balance accordingly
+        double total_payements = 0;
+
+        for (Payment payment: this.payments) total_payements += payment.getAmount();
+
+        return this.amount-total_payements;
+    }
+
+    public void pay (Payment payment) {
+	    if (checkPayment(payment)) {
+	        setAmount(this.amount+payment.getAmount());
+        }
+    }
+
+    public boolean checkPayment (Payment payment) {
+	    //TODO: implement the remaining necessary checks for payement of debt
+	    if (payment.getAmount() <= 0) return false;
+	    return true;
+    }
+
+    public boolean isSettled () {
+	    if (this.amount==0) return true;
+	    return false;
+    }
 }
