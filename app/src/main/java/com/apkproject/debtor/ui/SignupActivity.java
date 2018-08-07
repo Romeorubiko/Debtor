@@ -13,6 +13,7 @@ import android.view.inputmethod.EditorInfo;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -26,7 +27,10 @@ import com.google.firebase.auth.FirebaseUser;
 public class SignupActivity extends AppCompatActivity {
 
     private AutoCompleteTextView mEmailView;
-    private EditText mPasswordView;
+    private EditText mPasswordView, mNameView;
+    private Spinner mSpinnerView;
+    private Button mEmailSignInButton;
+    //String text = mySpinner.getSelectedItem().toString();
 
     /**
      * Keep track of the login task to ensure we can cancel it if requested.
@@ -40,9 +44,13 @@ public class SignupActivity extends AppCompatActivity {
         setContentView(R.layout.activity_signup);
 
         // todo Set up the login form. (name, surname, currency preference)
+        //TODO: add image during signup
         mEmailView = (AutoCompleteTextView) findViewById(R.id.signup_email);
-
         mPasswordView = (EditText) findViewById(R.id.signup_password);
+        mNameView = (EditText) findViewById(R.id.signup_name);
+        mSpinnerView = (Spinner) findViewById(R.id.signup_currency_spinner);
+        mEmailSignInButton = (Button) findViewById(R.id.email_sign_up_button);
+
         mPasswordView.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
             public boolean onEditorAction(TextView textView, int id, KeyEvent keyEvent) {
@@ -54,7 +62,10 @@ public class SignupActivity extends AppCompatActivity {
             }
         });
 
-        Button mEmailSignInButton = (Button) findViewById(R.id.email_sign_up_button);
+
+        //String name = mNameView.getText().toString();
+        //String currency = mSpinnerView.getSelectedItem().toString();
+
         mEmailSignInButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -145,4 +156,5 @@ public class SignupActivity extends AppCompatActivity {
         //TODO: Replace this with your own logic
         return password.length() > 4;
     }
+
 }
