@@ -8,4 +8,7 @@
     <color name="colorFacebook">#3b5998</color>
     <color name="colorTwitter">#1da1f2</color>
     <color name="colorGoogle">#db4437</color>
+    <color name="colorStrongGrey">#5a6978</color>
+    <color name="colorRed">#f9655f</color>
+    <color name="colorBlue">#00a6ff</color>
 </resources>
