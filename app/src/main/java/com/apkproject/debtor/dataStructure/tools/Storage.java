@@ -30,6 +30,8 @@ public final class Storage {
 
         private Storage() {}
 
+
+        //Writes in phone
         public static void writeLocalStorage(Context context, String key, Object object) throws IOException {
             FileOutputStream fos = context.openFileOutput(key, Context.MODE_PRIVATE);
             ObjectOutputStream oos = new ObjectOutputStream(fos);
@@ -38,6 +40,7 @@ public final class Storage {
             fos.close();
         }
 
+        //Reads from
         public static Object readLocalStorage(Context context, String key) throws IOException,
                 ClassNotFoundException {
             FileInputStream fis = context.openFileInput(key);
