@@ -39,4 +39,11 @@
     <string name="filters">Filters</string>
     <string name="total">Total:</string>
     <string name="test_amount">000.00€</string>
+    <string name="prompt_name">Name*</string>
+    <string-array name="currency_array">
+        <item>EUR-Euro</item>
+        <item>USD-US Dollar</item>
+        <item>GPD-Pound Sterling</item>
+        <item>RUB-Russian Ruble</item>
+    </string-array>
 </resources>
