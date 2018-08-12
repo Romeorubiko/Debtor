@@ -3,6 +3,7 @@ package com.apkproject.debtor.dataStructure.debts;
 import com.apkproject.debtor.dataStructure.person.Contact;
 
 import java.io.Serializable;
+import java.util.Calendar;
 import java.util.Currency;
 import java.util.Date;
 import java.util.List;
@@ -14,12 +15,12 @@ public class Debt implements Serializable{
 	private Contact from;
 	private Contact to;
 	private double amount;
-	private Date lastUpdate;
+	private Calendar lastUpdate;
 	private String description;
 	private List<Payment> payments;
 	private Currency currency;
 
-	public Debt(Contact from, Contact to, double amount, Date lastUpdate, String description, List<Payment> payments, Currency currency) {
+	public Debt(Contact from, Contact to, double amount, Calendar lastUpdate, String description, List<Payment> payments, Currency currency) {
 		//TODO: generate debt id
 		this.from = from;
 		this.to = to;
@@ -34,11 +35,11 @@ public class Debt implements Serializable{
         return amount;
     }
 
-    public Date getLastUpdate() {
+    public Calendar getLastUpdate() {
         return lastUpdate;
     }
 
-    public void setLastUpdate(Date lastUpdate) {
+    public void setLastUpdate(Calendar lastUpdate) {
         this.lastUpdate = lastUpdate;
     }
 

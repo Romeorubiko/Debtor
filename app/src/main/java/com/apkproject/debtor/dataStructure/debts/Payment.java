@@ -1,14 +1,15 @@
 package com.apkproject.debtor.dataStructure.debts;
 
 import java.io.Serializable;
+import java.util.Calendar;
 import java.util.Date;
 
 public class Payment implements Serializable {
     private long debtId;
     private double amount;
-    private Date date;
+    private Calendar date;
 
-    public Payment(long debtId, double amount, Date date) {
+    public Payment(long debtId, double amount, Calendar date) {
         this.debtId = debtId;
         this.amount = amount;
         this.date = date;
@@ -22,7 +23,7 @@ public class Payment implements Serializable {
         return amount;
     }
 
-    public Date getDate() {
+    public Calendar getDate() {
         return date;
     }
 }
