@@ -18,6 +18,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.apkproject.debtor.R;
+import com.apkproject.debtor.dataStructure.person.User;
+import com.apkproject.debtor.dataStructure.tools.Currency;
+import com.apkproject.debtor.dataStructure.tools.Storage;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -63,8 +66,8 @@ public class SignupActivity extends AppCompatActivity {
         });
 
 
-        //String name = mNameView.getText().toString();
-        //String currency = mSpinnerView.getSelectedItem().toString();
+        String name = mNameView.getText().toString();
+        String currency = mSpinnerView.getSelectedItem().toString();
 
         mEmailSignInButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -79,6 +82,11 @@ public class SignupActivity extends AppCompatActivity {
                                     Log.d("AuthSuccess", "createUserWithEmail:success");
                                     FirebaseUser user = mAuth.getCurrentUser();
                                     updateUI(user);
+                                    String email = mEmailView.getText().toString();
+                                    String name = mNameView.getText().toString();
+                                    Currency currency = (Currency) mSpinnerView.getSelectedItem();
+                                    User newUser = new User(name, mEmailView.getText().toString(), currency);
+                                    Storage.writeFirebase(Storage.GROUPUSERS, mAuth.getUid(), newUser);
                                     Intent intent = new Intent(SignupActivity.this, MyListsActivity.class);
                                     startActivity(intent);
 

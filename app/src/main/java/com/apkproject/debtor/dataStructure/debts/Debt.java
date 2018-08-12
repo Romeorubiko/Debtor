@@ -34,10 +34,6 @@ public class Debt implements Serializable{
         return amount;
     }
 
-    public void setAmount(double amount) {
-        this.amount = amount;
-    }
-
     public Date getLastUpdate() {
         return lastUpdate;
     }
@@ -58,7 +54,6 @@ public class Debt implements Serializable{
         return id;
     }
 
-
     public Contact getFrom() {
         return from;
     }
@@ -75,7 +70,7 @@ public class Debt implements Serializable{
         return currency;
     }
 
-    public double getBalance (long debtId) {
+    public double getBalance () {
 	    //TODO: when getting debt balance, check if the balance is from or to user, and show a negative or positive balance accordingly
         double total_payements = 0;
 
@@ -86,7 +81,7 @@ public class Debt implements Serializable{
 
     public void pay (Payment payment) {
 	    if (checkPayment(payment)) {
-	        setAmount(this.amount+payment.getAmount());
+	        this.payments.add(payment);
         }
     }
 
@@ -97,7 +92,7 @@ public class Debt implements Serializable{
     }
 
     public boolean isSettled () {
-	    if (this.amount==0) return true;
+	    if (this.getBalance()==0) return true;
 	    return false;
     }
 }
