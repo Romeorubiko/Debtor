@@ -3,14 +3,10 @@ package com.apkproject.debtor.dataStructure.debts;
 import com.apkproject.debtor.dataStructure.person.Contact;
 
 import java.io.Serializable;
-<<<<<<< HEAD
-=======
+
 import java.util.ArrayList;
->>>>>>> 46ba34e0e5dc8740561c0bdd86f4b1e72753d02c
+
 import java.util.Calendar;
-import java.util.Currency;
-import java.util.Date;
-import java.util.GregorianCalendar;
 import java.util.List;
 
 //What defines a debt
@@ -25,11 +21,9 @@ public class Debt implements Serializable{
 	private List<Payment> payments;
 	private com.apkproject.debtor.dataStructure.tools.Currency currency;
 
-<<<<<<< HEAD
-	public Debt(Contact from, Contact to, double amount, Calendar lastUpdate, String description, List<Payment> payments, Currency currency) {
-=======
+
 	public Debt(Contact from, Contact to, double amount, String description, com.apkproject.debtor.dataStructure.tools.Currency currency) {
->>>>>>> 46ba34e0e5dc8740561c0bdd86f4b1e72753d02c
+
 		//TODO: generate debt id
 		this.from = from;
 		this.to = to;
@@ -95,13 +89,10 @@ public class Debt implements Serializable{
     }
 
     public void pay (Payment payment) {
-<<<<<<< HEAD
 	    if (checkPayment(payment)) {
 	        this.payments.add(payment);
         }
-=======
-	    payments.add(payment);
->>>>>>> 46ba34e0e5dc8740561c0bdd86f4b1e72753d02c
+
     }
 
     public boolean checkPayment (Payment payment) {
