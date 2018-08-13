@@ -100,4 +100,29 @@ public class User extends Contact implements Serializable {
     public void deleteAccount(){
         //todo delete account on firebase
     }
+
+    public double getCurrentIOwe(){
+        double result = 0;
+        for (Debt d: getDebtList()) {
+            if(d.getBalance()>0 && d.getFrom().getName().equals(getName())) result = result + d.getBalance();
+        }
+        return result;
+    }
+
+    public double getCurrentIAreOwed(){
+        double result = 0;
+        for (Debt d: getDebtList()) {
+            if(d.getBalance()>0 && d.getTo().getName().equals(getName())) result = result + d.getBalance();
+        }
+        return result;
+    }
+
+    public double getBalance(){
+        return getCurrentIAreOwed()-getCurrentIOwe();
+    }
+
+    /*todo
+    public User findUserById(){
+
+    }*/
 }
