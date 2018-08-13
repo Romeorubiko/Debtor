@@ -185,4 +185,9 @@ public enum Currency {
     public String getDescription() {
         return description;
     }
+
+    //returns the symbol of a currency given the id(e.g. EUR -> return €)
+    public String getSymbol(){
+        return java.util.Currency.getInstance(this.name()).getSymbol();
+    }
 }

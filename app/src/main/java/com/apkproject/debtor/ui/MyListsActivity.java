@@ -15,22 +15,34 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
 
 import com.apkproject.debtor.R;
+import com.apkproject.debtor.dataStructure.person.User;
+import com.apkproject.debtor.dataStructure.tools.Tool;
 import com.apkproject.debtor.recyclerView.ContactAdapter;
+import com.apkproject.debtor.test.Test;
+
+import java.io.IOException;
+import java.util.Currency;
 
 public class MyListsActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     RecyclerView recyclerView;
-    // Initialize
-    String[] s ={"persona1","persona2"};
+    User me;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_lists);
+
+        try {
+            Test.createUser(this);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -53,15 +65,28 @@ public class MyListsActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
+        //get my user
+        try {
+            me = Tool.getCurrentUser(this);
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+
+
         // Lookup the recyclerview in activity layout
         recyclerView = (RecyclerView) findViewById(R.id.mylists_recyclerview);
-
         // Set layout manager to position the items
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         // Attach the adapter to the recyclerview to populate items
-        recyclerView.setAdapter(new ContactAdapter(this, s));
+        recyclerView.setAdapter(new ContactAdapter(this, Test.createMyLists()));
 
-
+        //set header
+        TextView iOwe = (TextView) findViewById(R.id.header_contact_adapter_you_owe);
+        iOwe.setText(Tool.toCurrencyAndSymbol(me.getCurrentIOwe(),me.getCurrency()));
+        TextView iAreOwed = (TextView) findViewById(R.id.header_contact_adapter_you_are_owed);
+        iAreOwed.setText(Tool.toCurrencyAndSymbol(me.getCurrentIAreOwed(),me.getCurrency()));
 
     }
 

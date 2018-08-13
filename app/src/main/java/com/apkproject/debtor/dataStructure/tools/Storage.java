@@ -24,6 +24,8 @@ import java.util.List;
 
 public final class Storage {
 
+    //all methods for storage
+
         public static final String ME = "ME";
         public static final String GROUPUSERS = "users";
         public static final String GROUPDEBTS = "debts";
@@ -40,7 +42,7 @@ public final class Storage {
             fos.close();
         }
 
-        //Reads from
+        //Reads from phone
         public static Object readLocalStorage(Context context, String key) throws IOException,
                 ClassNotFoundException {
             FileInputStream fis = context.openFileInput(key);
@@ -49,29 +51,23 @@ public final class Storage {
             return object;
         }
 
+        //writes on firebise any object but you have to different the group it belongs
         public static void writeFirebase(String group, String id, Object value) {
             FirebaseDatabase.getInstance().getReference().child(group).child(id).setValue(value);
         }
 
-        public static User readUserFirebase(final Context context){
+        //read user account from firebase given an id
+        public static User readUserFirebase(Context context, final String id){
             DatabaseReference ref = FirebaseDatabase.getInstance().getReference().child(Storage.GROUPUSERS);
             final List<User> userList= new ArrayList<User>();
             ref.addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(DataSnapshot dataSnapshot) {
                     for (DataSnapshot item: dataSnapshot.getChildren()) {
-                        try {
-                            if (item.getKey().equals(Tool.getCurrentUser(context).getEmail()))
-                            {
-                                User user= dataSnapshot.getValue(User.class);
-                                userList.add(user);
-                            }
-                        } catch (IOException e) {
-                            e.printStackTrace();
-                        } catch (ClassNotFoundException e) {
-                            e.printStackTrace();
+                        if (item.getKey().equals(id)) {
+                            User user = dataSnapshot.getValue(User.class);
+                            userList.add(user);
                         }
-
                     }
                 }
 
@@ -84,26 +80,27 @@ public final class Storage {
             return userList.get(0);
         }
 
-    public static Debt readDebtFirebase(Context context, final String id){
-        DatabaseReference ref = FirebaseDatabase.getInstance().getReference().child(Storage.GROUPDEBTS);
-        final List<Debt> debtList= new ArrayList<Debt>();
-        ref.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                for (DataSnapshot item: dataSnapshot.getChildren()) {
-                        if (item.getKey().equals(id)) {
-                            Debt debt = dataSnapshot.getValue(Debt.class);
-                            debtList.add(debt);
-                        }
+        //read debt from firebase given an id
+        public static Debt readDebtFirebase(Context context, final String id){
+            DatabaseReference ref = FirebaseDatabase.getInstance().getReference().child(Storage.GROUPDEBTS);
+            final List<Debt> debtList= new ArrayList<Debt>();
+            ref.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    for (DataSnapshot item: dataSnapshot.getChildren()) {
+                            if (item.getKey().equals(id)) {
+                                Debt debt = dataSnapshot.getValue(Debt.class);
+                                debtList.add(debt);
+                            }
+                    }
                 }
-            }
 
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
 
-            }
+                }
 
-        });
-        return debtList.get(0);
-    }
+            });
+            return debtList.get(0);
+        }
 }
