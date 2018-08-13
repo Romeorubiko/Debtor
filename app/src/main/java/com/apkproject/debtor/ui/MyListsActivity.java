@@ -108,17 +108,15 @@ public class MyListsActivity extends AppCompatActivity
         //new activity related to the button pressed
 
 
-        if (id == R.id.my_lists_drawer) {
+        if (id == R.id.my_debts_drawer) {
            //do nothing, we're already in this Activity
-        } else if (id == R.id.shared_payment_drawer) {
-            //todo intent = new Intent(MyListsActivity.this, SharedPaymentActivity.class);
-        } else if (id == R.id.history_drawer) {
+        }  else if (id == R.id.history_drawer) {
             //todo intent = new Intent(MyListsActivity.this, HistorytActivity.class);
         } else if (id == R.id.contacts_drawer) {
             //todo intent = new Intent(MyListsActivity.this, ContactListActivity.class);
         } else if (id == R.id.sync_drawer) {
             //todo intent = new Intent(MyListsActivity.this, SyncActivity.class);
-        } else if (id == R.id.account_settings_drawer) {
+        } else if (id == R.id.settings_drawer) {
             intent = new Intent(MyListsActivity.this, AccountActivity.class);
             pressed = true;
         }
