@@ -27,6 +27,8 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
+import java.io.IOException;
+
 public class SignupActivity extends AppCompatActivity {
 
     private AutoCompleteTextView mEmailView;
@@ -87,6 +89,11 @@ public class SignupActivity extends AppCompatActivity {
                                     Currency currency = (Currency) mSpinnerView.getSelectedItem();
                                     User newUser = new User(name, mEmailView.getText().toString(), currency);
                                     Storage.writeFirebase(Storage.GROUPUSERS, mAuth.getUid(), newUser);
+                                    try {
+                                        Storage.writeLocalStorage(SignupActivity.this, Storage.ME, newUser);
+                                    } catch (IOException e) {
+                                        e.printStackTrace();
+                                    }
                                     Intent intent = new Intent(SignupActivity.this, MyListsActivity.class);
                                     startActivity(intent);
 
