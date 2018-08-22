@@ -22,7 +22,7 @@
             android:id="@+id/notifications_drawer"
             android:checkable="false"
             android:icon="@drawable/ic_notifications_none"
-            android:title="@string/contact_list" />
+            android:title="@string/notifications" />
 
         <item
             android:id="@+id/sync_drawer"
@@ -35,7 +35,6 @@
             android:checkable="false"
             android:icon="@drawable/ic_settings"
             android:title="@string/settings" />
-
     </group>
 
 

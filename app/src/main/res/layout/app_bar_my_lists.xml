@@ -26,12 +26,14 @@
             android:orientation="horizontal"
             android:padding="12dp">
 
-            <ImageView
+            <com.mikhaellopez.circularimageview.CircularImageView
                 android:id="@+id/header_contact_adapter_user_avatar"
                 android:layout_width="72dp"
                 android:layout_height="72dp"
                 android:layout_weight="1"
                 android:contentDescription="@string/user_avatar"
+                app:civ_border="false"
+                app:civ_shadow="false"
                 app:srcCompat="@android:drawable/sym_def_app_icon" />
 
             <LinearLayout
@@ -123,7 +125,7 @@
         <android.support.v7.widget.RecyclerView
             android:id="@+id/mylists_recyclerview"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:background="@android:color/background_light"
             android:scrollbars="vertical" />
 
@@ -131,12 +133,36 @@
     </android.support.design.widget.AppBarLayout>
 
 
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/fab"
-        android:layout_width="wrap_content"
+    <com.getbase.floatingactionbutton.FloatingActionsMenu
+        android:id="@+id/my_lists_floating_button"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
-        android:layout_margin="@dimen/fab_margin"
-        app:srcCompat="@android:drawable/ic_input_add" />
+        android:layout_margin="16dp"
+        app:fab_addButtonColorNormal="@color/colorPrimary"
+        app:fab_addButtonColorPressed="@color/colorGrey"
+        app:fab_labelStyle="@style/AlertDialog.AppCompat"
+        app:fab_labelsPosition="left"
+        app:srcCompat="@android:drawable/ic_input_add">
+
+        <com.getbase.floatingactionbutton.FloatingActionButton
+            android:id="@+id/my_lists_floating_button_one"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@android:drawable/ic_input_add"
+            app:fab_colorNormal="@color/colorPrimary"
+            app:fab_colorPressed="@color/colorGrey"
+            app:fab_title="@string/create_debt" />
+
+        <com.getbase.floatingactionbutton.FloatingActionButton
+            android:id="@+id/my_lists_floating_button_two"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@android:drawable/ic_input_add"
+            app:fab_colorNormal="@color/colorPrimary"
+            app:fab_colorPressed="@color/colorGrey"
+            app:fab_title="@string/shared_debt" />
+
+    </com.getbase.floatingactionbutton.FloatingActionsMenu>
 
 </android.support.design.widget.CoordinatorLayout>

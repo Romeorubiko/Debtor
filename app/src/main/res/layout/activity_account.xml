@@ -1,16 +1,128 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="@dimen/activity_vertical_margin"
+    android:padding="16dp"
     tools:context=".ui.AccountActivity">
 
-    <Button
-        android:id="@+id/account_button_logout"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/log_out" />
-</LinearLayout>
+        android:orientation="vertical">
+
+        <com.mikhaellopez.circularimageview.CircularImageView
+            android:id="@+id/signup_add_image"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_gravity="center_horizontal"
+            android:src="@drawable/ic_photo"
+            app:civ_shadow="false" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/account_email"
+                android:layout_width="match_parent"
+                android:layout_height="36dp"
+                android:background="@drawable/text_line"
+                android:drawableEnd="@drawable/ic_email"
+                android:gravity="bottom|start"
+                android:paddingBottom="4dp"
+                android:singleLine="true"
+                android:text="@string/text_sample" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/account_name"
+                android:layout_width="match_parent"
+                android:layout_height="36dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/text_line"
+                android:drawableEnd="@drawable/ic_user"
+                android:gravity="bottom|start"
+                android:paddingBottom="4dp"
+                android:singleLine="true"
+                android:text="@string/text_sample" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:weightSum="10">
+
+            <TextView
+                android:id="@+id/account_currency"
+                android:layout_width="0dp"
+                android:layout_height="36dp"
+                android:layout_weight="8"
+                android:background="@drawable/text_line"
+                android:gravity="bottom|start"
+                android:paddingBottom="4dp"
+                android:text="@string/text_sample" />
+
+            <TextView
+                android:id="@+id/account_currency_symbol"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:gravity="center"
+                android:text="€"
+                android:textSize="34sp" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <com.getbase.floatingactionbutton.FloatingActionsMenu
+        android:id="@+id/account_floating_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        app:fab_addButtonColorNormal="@color/colorPrimary"
+        app:fab_addButtonColorPressed="@color/colorGrey"
+        app:fab_labelStyle="@style/AlertDialog.AppCompat"
+        app:fab_labelsPosition="left"
+        app:srcCompat="@android:drawable/ic_input_add">
+
+        <com.getbase.floatingactionbutton.FloatingActionButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/edit_profile"
+            android:src="@android:drawable/ic_menu_edit"
+            app:fab_colorNormal="@color/colorPrimary"
+            app:fab_colorPressed="@color/colorGrey"
+            app:fab_title="@string/edit_profile" />
+
+        <com.getbase.floatingactionbutton.FloatingActionButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/change_password"
+            android:src="@drawable/ic_password"
+            app:fab_colorNormal="@color/colorPrimary"
+            app:fab_colorPressed="@color/colorGrey"
+            app:fab_title="@string/change_password" />
+
+        <com.getbase.floatingactionbutton.FloatingActionButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/delete_account"
+            android:src="@android:drawable/ic_menu_delete"
+            app:fab_colorNormal="@color/colorRed"
+            app:fab_colorPressed="@color/colorGrey"
+            app:fab_title="@string/delete_account" />
+    </com.getbase.floatingactionbutton.FloatingActionsMenu>
+
+
+</android.support.design.widget.CoordinatorLayout>

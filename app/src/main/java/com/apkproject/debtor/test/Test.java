@@ -18,9 +18,9 @@ public class Test {
         User mike = new User("Mike Tyson", "mike@falso.com", Currency.EUR);
         User evan = new User("Evan Garó", "evan@falso.com", Currency.EUR);
         User petra = new User("Petra Shepard", "petra@falso.com", Currency.EUR);
-        me.addUser(mike);
-        me.addUser(evan);
-        me.addUser(petra);
+        me.addContact(mike);
+        me.addContact(evan);
+        me.addContact(petra);
         Debt d1 = new Debt(mike, me, 10.55, "Dinner at Moncloa", Currency.EUR);
         Debt d2 = new Debt(me, mike, 15, "Evan's present", Currency.EUR);
         Debt d3 = new Debt(mike, me, 15.60, "London apartment", Currency.EUR);

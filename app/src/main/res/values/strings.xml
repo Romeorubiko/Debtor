@@ -34,11 +34,11 @@
     <string name="log_out">Log out</string>
     <string name="user_avatar">User avatar</string>
     <string name="my_balance">My balance:</string>
-    <string name="you_owe" >You owe</string>
+    <string name="you_owe">You owe</string>
     <string name="you_are_owed">You are owed</string>
     <string name="filters">Filters</string>
     <string name="total">Total:</string>
-    <string name="test_amount">000.00€</string>
+    <string name="test_amount">000.00</string>
     <string name="prompt_name">Name*</string>
     <string name="january">January</string>
     <string name="february">February</string>
@@ -52,6 +52,17 @@
     <string name="october">October</string>
     <string name="november">November</string>
     <string name="december">December</string>
+    <string name="edit_profile">Edit profile</string>
+    <string name="change_password">Change password</string>
+    <string name="delete_account">Delete account</string>
+    <string name="text_sample">Sample Text</string>
+    <string name="create_debt">Create a debt</string>
+    <string name="shared_debt">Calculate a shared Debt</string>
+    <string name="confirm">Confirm</string>
+    <string name="with">With</string>
+    <string name="reason">Reason</string>
+    <string name="date">Date</string>
+    <string name="comment">Comment</string>
 
     <string-array name="currency_array">
         <item>EUR-Euro</item>

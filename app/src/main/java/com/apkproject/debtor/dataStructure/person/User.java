@@ -1,9 +1,12 @@
 package com.apkproject.debtor.dataStructure.person;
 
+import android.graphics.Bitmap;
+
 import com.apkproject.debtor.dataStructure.alerts.Notification;
 import com.apkproject.debtor.dataStructure.alerts.Request;
 import com.apkproject.debtor.dataStructure.debts.Debt;
 import com.apkproject.debtor.dataStructure.tools.Currency;
+import com.apkproject.debtor.dataStructure.tools.SerialBitmap;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -17,6 +20,7 @@ public class User extends Contact implements Serializable {
     private List<Debt> debtList;
     private List<Notification> notificationList;
     private List<Request> requestList;
+    private SerialBitmap photo;
 
     public User(String name, String email, Currency currency) {
         super(name);
@@ -52,8 +56,11 @@ public class User extends Contact implements Serializable {
         return requestList;
     }
 
-    public void setPhoto(String photo){
-        this.setPhoto(photo);
+    public void setPhoto(SerialBitmap photo){
+        this.photo = photo;
+    }
+    public Bitmap getPhoto() {
+        return photo.getBitmap();
     }
 
     public void setEmail(String email) {
@@ -64,16 +71,17 @@ public class User extends Contact implements Serializable {
         this.currency = currency;
     }
 
-    public void addContact(Contact c){
-        contactList.add(c);
+    //add contact sorted by name
+    public void addContact(Contact contact){
+        for (int i = 0; i < contactList.size(); i++){
+            if(contactList.get(i).getName().toLowerCase().charAt(0) > contact.getName().toLowerCase().charAt(0))contactList.add(i+1, contact);
+        }
+        contactList.add(contact);
     }
 
-    public void addUser(User u){
-        contactList.add(u);
-    }
-
+    //add contact sorted by date
     public void addDebt(Debt d){
-        debtList.add(d);
+        debtList.add(0,d);
     }
 
     public boolean isInMyContactList(String name){
@@ -121,8 +129,28 @@ public class User extends Contact implements Serializable {
         return getCurrentIAreOwed()-getCurrentIOwe();
     }
 
-    /*todo
-    public User findUserById(){
 
-    }*/
+    public User findUserByMail(String email){
+        for (Contact c: contactList) {
+            if(c.isAUser()){
+                if(((User)c).getEmail().equals(email))return (User) c;
+            }
+        }
+        return null;
+    }
+
+    public Contact findUserByName(String name){
+        for (Contact c: contactList) {
+                if(c.getName().equals(name))return c;
+        }
+        return null;
+    }
+
+    public List<Contact> findAllWithName(String name){
+        List<Contact> result = new ArrayList<>();
+        for (Contact c: contactList) {
+            if (c.getName().contains(name)) result.add(c);
+        }
+        return result;
+    }
 }

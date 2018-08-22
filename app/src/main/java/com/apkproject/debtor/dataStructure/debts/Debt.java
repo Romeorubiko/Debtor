@@ -8,11 +8,12 @@ import java.util.ArrayList;
 
 import java.util.Calendar;
 import java.util.List;
+import java.util.UUID;
 
 //What defines a debt
 public class Debt implements Serializable{
 
-	private long id;
+	private final String ID;
 	private Contact from;
 	private Contact to;
 	private double amount;
@@ -24,7 +25,7 @@ public class Debt implements Serializable{
 
 	public Debt(Contact from, Contact to, double amount, String description, com.apkproject.debtor.dataStructure.tools.Currency currency) {
 
-		//TODO: generate debt id
+        ID = UUID.randomUUID().toString();
 		this.from = from;
 		this.to = to;
 		this.amount = amount;
@@ -42,7 +43,6 @@ public class Debt implements Serializable{
         this.amount = amount;
     }
 
-
     public Calendar getLastUpdate() {
         return lastUpdate;
     }
@@ -59,8 +59,8 @@ public class Debt implements Serializable{
         this.description = description;
     }
 
-    public long getId() {
-        return id;
+    public String getId() {
+        return ID;
     }
 
     public Contact getFrom() {
@@ -80,7 +80,6 @@ public class Debt implements Serializable{
     }
 
     public double getBalance () {
-	    //TODO: when getting debt balance, check if the balance is from or to user, and show a negative or positive balance accordingly
         double total_payements = 0;
 
         for (Payment payment: this.payments) total_payements += payment.getAmount();
