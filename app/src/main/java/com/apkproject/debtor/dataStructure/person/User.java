@@ -26,6 +26,7 @@ public class User extends Contact implements Serializable {
         super(name);
         this.email = email;
         this.currency = currency;
+        photo = null;
         contactList = new ArrayList<>();
         debtList = new ArrayList<>();
         notificationList = new ArrayList<>();
@@ -60,7 +61,8 @@ public class User extends Contact implements Serializable {
         this.photo = photo;
     }
     public Bitmap getPhoto() {
-        return photo.getBitmap();
+        if (photo == null) return null;
+        else return photo.getBitmap();
     }
 
     public void setEmail(String email) {

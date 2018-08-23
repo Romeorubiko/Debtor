@@ -36,12 +36,12 @@ public class MyListsActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_lists);
-/*
+
         try {
             Test.createUser(this);
         } catch (IOException e) {
             e.printStackTrace();
-        }*/
+        }
 
         //get my user
         try {
@@ -83,8 +83,10 @@ public class MyListsActivity extends AppCompatActivity
         iOwe.setText(Tool.toCurrencyAndSymbol(me.getCurrentIOwe(),me.getCurrency()));
         TextView iAreOwed = (TextView) findViewById(R.id.header_contact_adapter_you_are_owed);
         iAreOwed.setText(Tool.toCurrencyAndSymbol(me.getCurrentIAreOwed(),me.getCurrency()));
-        CircularImageView circularImageView = (CircularImageView) findViewById(R.id.header_contact_adapter_user_avatar);
-        circularImageView.setImageBitmap(me.getPhoto());
+        if (me.getPhoto() != null) {
+            CircularImageView circularImageView = (CircularImageView) findViewById(R.id.header_contact_adapter_user_avatar);
+            circularImageView.setImageBitmap(me.getPhoto());
+        }
     }
 
     @Override

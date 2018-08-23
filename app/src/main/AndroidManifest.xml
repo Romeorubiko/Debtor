@@ -15,7 +15,7 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".ui.LoginActivity"
-            android:label="@string/app_name"></activity>
+            android:label="@string/app_name" />
         <activity
             android:name=".ui.SignupActivity"
             android:label="@string/Sign_up"
@@ -33,7 +33,16 @@
             </intent-filter>
         </activity>
         <activity android:name=".ui.AccountActivity" />
-        <activity android:name=".ui.NewDebt"></activity>
+        <activity android:name=".ui.NewDebt" />
+        <activity
+            android:name=".ui.AccountEditActivity"
+            android:label="@string/title_activity_account_edit"
+            android:parentActivityName=".ui.AccountActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.apkproject.debtor.ui.AccountActivity" />
+        </activity>
     </application>
 
 </manifest>

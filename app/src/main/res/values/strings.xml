@@ -63,6 +63,7 @@
     <string name="reason">Reason</string>
     <string name="date">Date</string>
     <string name="comment">Comment</string>
+    <string name="changes_applied">Changes applied</string>
 
     <string-array name="currency_array">
         <item>EUR-Euro</item>
@@ -70,4 +71,6 @@
         <item>GPD-Pound Sterling</item>
         <item>RUB-Russian Ruble</item>
     </string-array>
+    <string name="title_activity_account_edit">Account Edit</string>
+    <string name="apply">Apply</string>
 </resources>

@@ -21,10 +21,11 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
         android:orientation="vertical">
 
         <com.mikhaellopez.circularimageview.CircularImageView
-            android:id="@+id/signup_add_image"
+            android:id="@+id/account_edit_avatar"
             android:layout_width="150dp"
             android:layout_height="150dp"
             android:layout_gravity="center_horizontal"
@@ -36,7 +37,7 @@
             android:layout_height="wrap_content">
 
             <AutoCompleteTextView
-                android:id="@+id/signup_email"
+                android:id="@+id/account_edit_email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:drawableEnd="@drawable/ic_email"
@@ -52,26 +53,7 @@
             android:layout_height="wrap_content">
 
             <EditText
-                android:id="@+id/signup_password"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:drawableEnd="@drawable/ic_password"
-                android:hint="@string/prompt_password"
-                android:imeActionId="6"
-                android:imeActionLabel="@string/action_sign_in_short"
-                android:imeOptions="actionUnspecified"
-                android:inputType="textPassword"
-                android:maxLines="1"
-                android:singleLine="true" />
-
-        </android.support.design.widget.TextInputLayout>
-
-        <android.support.design.widget.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <EditText
-                android:id="@+id/signup_name"
+                android:id="@+id/account_edit_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -83,26 +65,43 @@
                 android:singleLine="true" />
         </android.support.design.widget.TextInputLayout>
 
-        <Spinner
-            android:id="@+id/signup_currency_spinner"
-            android:layout_width="300dp"
+        <LinearLayout
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:entries="@array/currency_array"
-            android:paddingBottom="15dp"
-            android:paddingTop="15dp"
-            android:spinnerMode="dropdown" />
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <Spinner
+                android:id="@+id/account_edit_spinner_currency"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:entries="@array/currency_array"
+                android:paddingBottom="15dp"
+                android:paddingTop="15dp"
+                android:spinnerMode="dropdown" />
+
+            <TextView
+                android:id="@+id/account_edit_symbol"
+                android:layout_width="40dp"
+                android:layout_height="wrap_content"
+                android:text="€"
+                android:textColor="@color/common_google_signin_btn_text_dark_focused"
+                android:textSize="32dp" />
+
+        </LinearLayout>
 
     </LinearLayout>
 
+
     <Button
-        android:id="@+id/email_sign_up_button"
+        android:id="@+id/account_edit_apply"
         style="?android:textAppearanceSmall"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/button_size"
+        android:layout_height="wrap_content"
         android:layout_gravity="bottom"
         android:background="@drawable/rounded_button"
         android:backgroundTint="@color/colorPrimary"
-        android:text="@string/Sign_up"
+        android:text="@string/apply"
         android:textColor="@android:color/background_light"
         android:textStyle="bold" />
 

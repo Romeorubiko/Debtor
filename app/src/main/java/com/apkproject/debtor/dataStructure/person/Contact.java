@@ -18,4 +18,6 @@ public class Contact implements Serializable{
     public boolean isAUser(){
         return false;
     }
+
+    public void setName(String name) { this.name = name; }
 }
