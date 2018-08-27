@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <group android:checkableBehavior="single">
+    <group android:checkableBehavior="single"
+        android:id="@+id/nav_drawer_top">
         <item
             android:id="@+id/my_debts_drawer"
             android:checkable="false"
@@ -24,6 +26,14 @@
             android:icon="@drawable/ic_notifications_none"
             android:title="@string/notifications" />
 
+
+
+
+    </group>
+
+    <group android:checkableBehavior="single"
+        android:id="@+id/nav_drawer_bottom"
+        android:layout_alignParentBottom="true">
         <item
             android:id="@+id/sync_drawer"
             android:checkable="false"
@@ -35,6 +45,8 @@
             android:checkable="false"
             android:icon="@drawable/ic_settings"
             android:title="@string/settings" />
+
+
     </group>
 
 

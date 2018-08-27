@@ -1,0 +1,14 @@
+Todo:
+	1. Menu
+	2. Todas las vistas del menú
+	3. Menú y toolbar en esas vistas
+	4. Spinners + .getSymbol del currency
+	5. Vista signup: confirmación contraseña
+	
+	
+	
+	
+	
+	appbarmylist
+	
+	
