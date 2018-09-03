@@ -12,7 +12,7 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/Theme.AppCompat.Light.NoActionBar">
         <activity
             android:name=".ui.LoginActivity"
             android:label="@string/app_name" />
@@ -32,7 +32,23 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.AccountActivity" />
+        <activity android:name=".ui.AccountActivity"
+            android:label="@string/title_activity_account"
+            android:theme="@style/AppTheme.NoActionBar"/>
+
+        <activity android:name=".ui.ContactListActivity"
+            android:label="@string/title_activity_contact_list"
+            android:theme="@style/AppTheme.NoActionBar"/>
+
+        <activity android:name=".ui.HistoryActivity"
+            android:label="@string/title_activity_history"
+            android:theme="@style/AppTheme.NoActionBar"/>
+
+        <activity android:name=".ui.NotificationsActivity"
+            android:label="@string/title_activity_notifications"
+            android:theme="@style/AppTheme.NoActionBar"/>
+
+
         <activity android:name=".ui.NewDebt" />
         <activity
             android:name=".ui.AccountEditActivity"
@@ -43,6 +59,7 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.apkproject.debtor.ui.AccountActivity" />
         </activity>
+
     </application>
 
 </manifest>

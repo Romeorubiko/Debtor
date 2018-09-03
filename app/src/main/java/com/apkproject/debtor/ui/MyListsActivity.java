@@ -126,29 +126,33 @@ public class MyListsActivity extends AppCompatActivity
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
-
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         Intent intent = null;
         boolean pressed = false;
         //new activity related to the button pressed
 
-
         if (id == R.id.my_debts_drawer) {
-           //do nothing, we're already in this Activity
+
+            drawer.closeDrawer(GravityCompat.START);
         }  else if (id == R.id.history_drawer) {
-            //todo intent = new Intent(MyListsActivity.this, HistorytActivity.class);
+            intent = new Intent(MyListsActivity.this, HistoryActivity.class);
+            pressed = true;
         } else if (id == R.id.contacts_drawer) {
-            //todo intent = new Intent(MyListsActivity.this, ContactListActivity.class);
+            intent = new Intent(MyListsActivity.this, ContactListActivity.class);
+            pressed = true;
         } else if (id == R.id.sync_drawer) {
             //todo intent = new Intent(MyListsActivity.this, SyncActivity.class);
         } else if (id == R.id.settings_drawer) {
             intent = new Intent(MyListsActivity.this, AccountActivity.class);
+            pressed = true;
+        } else if (id == R.id.notifications_drawer) {
+            intent = new Intent(MyListsActivity.this, NotificationsActivity.class);
             pressed = true;
         }
 
         if (pressed) {
             startActivity(intent);
         } else{
-            DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
             drawer.closeDrawer(GravityCompat.START);
         }
         return true;
